@@ -18,5 +18,4 @@ app.use((_req, res) => {
   res.status(404).json({ error: "Route not found" });
 });
 
-// ⬇️ Ključna promjena — mora biti NAMED export
-export const handler = serverless(app);
+export default serverless(app);
