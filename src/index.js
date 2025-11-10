@@ -3,9 +3,9 @@ import cors from "cors";
 import helmet from "helmet";
 import routes from "../routes/index.js";
 import cookieParser from "cookie-parser";
+import serverless from "serverless-http";
 
 const app = express();
-const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(helmet());
@@ -16,12 +16,10 @@ app.use(cookieParser());
 // Routes
 app.use("/", routes);
 
-// 404 Handler
+// 404 handler
 app.use((_req, res) => {
   res.status(404).send("Route not found");
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+// Export serverless handler
+export const handler = serverless(app);
