@@ -18,4 +18,4 @@ app.use((_req, res) => {
   res.status(404).json({ error: "Route not found" });
 });
 
-export default serverless(app);
+export const handler = serverless(app);
