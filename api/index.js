@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import routes from "../routes/index.js";
 import cookieParser from "cookie-parser";
+import routes from "../routes/index.js";
 import serverless from "serverless-http";
 
 const app = express();
@@ -18,4 +18,5 @@ app.use((_req, res) => {
   res.status(404).json({ error: "Route not found" });
 });
 
+// Named export koji Vercel očekuje
 export const handler = serverless(app);
