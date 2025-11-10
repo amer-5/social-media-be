@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import routes from "../routes";
+import routes from "../../routes/index.js";
 import cookieParser from "cookie-parser";
 import serverless from "serverless-http";
 
